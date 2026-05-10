@@ -19,6 +19,7 @@ import {
   FiShield,
   FiActivity,
 } from "react-icons/fi";
+import logo from "../assets/logo.png";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);

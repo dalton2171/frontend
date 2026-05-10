@@ -10,6 +10,11 @@ function TechOrbit() {
     { name: "Python", desc: "Automation & Cybersecurity" },
     { name: "Linux", desc: "System Administration" },
     { name: "MySQL", desc: "Database Engineering" },
+    { name: "Docker", desc: "Containerization & DevOps" },
+    { name: "AWS", desc: "Cloud Infrastructure" },
+    { name: "Kubernetes", desc: "Orchestration & Scaling" },
+    { name: "AI/ML", desc: "Artificial Intelligence & Machine Learning" },
+    
   ];
 
   return (
