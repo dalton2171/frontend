@@ -1,0 +1,493 @@
+@import "tailwindcss";
+
+/* =========================
+   RESET & ROOT
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background:
+    radial-gradient(circle at top, #050816, #02030a);
+  color: white;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  transition:
+    background 0.4s ease,
+    color 0.4s ease;
+  position: relative;
+}
+
+/* =========================
+   CYBER GRID BACKGROUND
+========================= */
+
+.cyber-grid {
+  position: fixed;
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(0, 255, 255, 0.04) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0, 255, 255, 0.04) 1px,
+      transparent 1px
+    );
+
+  background-size: 45px 45px;
+
+  z-index: -5;
+
+  opacity: 0.5;
+
+  pointer-events: none;
+}
+
+/* =========================
+   GLOBAL GLOW EFFECTS
+========================= */
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  filter: blur(160px);
+  z-index: -4;
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+body::before {
+  background: cyan;
+  top: -200px;
+  right: -150px;
+}
+
+body::after {
+  background: #9333ea;
+  bottom: -200px;
+  left: -150px;
+}
+
+/* =========================
+   GLASS CARD SYSTEM
+========================= */
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.06);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  border-radius: 24px;
+
+  box-shadow:
+    0 0 40px rgba(0, 255, 255, 0.06),
+    inset 0 0 20px rgba(255, 255, 255, 0.02);
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    border 0.3s ease;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.cyber-btn {
+  padding: 14px 28px;
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      cyan,
+      #9333ea
+    );
+
+  color: white;
+
+  font-weight: 600;
+
+  border: none;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.cyber-btn:hover {
+  transform:
+    translateY(-3px)
+    scale(1.02);
+
+  box-shadow:
+    0 0 25px rgba(0, 255, 255, 0.4),
+    0 0 40px rgba(147, 51, 234, 0.2);
+}
+
+.glass-btn {
+  padding: 14px 28px;
+
+  border-radius: 14px;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.15);
+
+  background:
+    rgba(255, 255, 255, 0.05);
+
+  backdrop-filter: blur(12px);
+
+  color: white;
+
+  cursor: pointer;
+
+  transition:
+    all 0.3s ease;
+}
+
+.glass-btn:hover {
+  background:
+    rgba(255, 255, 255, 0.1);
+
+  transform:
+    translateY(-2px);
+}
+
+/* =========================
+   NAV LINKS
+========================= */
+
+.nav-link {
+  position: relative;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.nav-link::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -5px;
+
+  width: 0%;
+  height: 2px;
+
+  background: cyan;
+
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  color: cyan;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* =========================
+   ACTIVE NAVIGATION
+========================= */
+
+.active-link {
+  color: cyan;
+}
+
+.active-link::after {
+  width: 100%;
+}
+
+/* =========================
+   GLOW TEXT
+========================= */
+
+.glow-text {
+  text-shadow:
+    0 0 10px cyan,
+    0 0 20px cyan;
+}
+
+/* =========================
+   TERMINAL SCROLLBAR
+========================= */
+
+.terminal-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.terminal-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.terminal-scroll::-webkit-scrollbar-thumb {
+  background:
+    rgba(0, 255, 255, 0.4);
+
+  border-radius: 10px;
+}
+
+/* =========================
+   ORBIT ANIMATIONS
+========================= */
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinSlowReverse {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-spin-slow {
+  animation:
+    spinSlow 20s linear infinite;
+}
+
+.animate-spin-slow-reverse {
+  animation:
+    spinSlowReverse 25s linear infinite;
+}
+
+/* =========================
+   CUSTOM CURSOR
+========================= */
+
+@media (pointer: fine) {
+  body {
+    cursor: none;
+  }
+
+  .cursor {
+    width: 15px;
+    height: 15px;
+
+    border: 2px solid cyan;
+
+    border-radius: 50%;
+
+    position: fixed;
+
+    pointer-events: none;
+
+    transform: translate(-50%, -50%);
+
+    transition:
+      transform 0.05s ease;
+
+    box-shadow:
+      0 0 15px cyan;
+
+    z-index: 9999;
+  }
+}
+
+/* =========================
+   SCAN LINE
+========================= */
+
+.scan-line {
+  position: fixed;
+
+  width: 100%;
+  height: 2px;
+
+  background:
+    rgba(0, 255, 255, 0.15);
+
+  top: 0;
+
+  animation:
+    scanMove 5s linear infinite;
+
+  z-index: 100;
+
+  pointer-events: none;
+}
+
+@keyframes scanMove {
+  0% {
+    top: 0;
+  }
+
+  100% {
+    top: 100%;
+  }
+}
+
+/* =========================
+   DARK MODE
+========================= */
+
+.dark-mode {
+  background:
+    radial-gradient(circle at top, #050816, #02030a);
+
+  color: white;
+}
+
+/* =========================
+   LIGHT MODE
+========================= */
+
+body:not(.dark-mode) {
+  background:
+    linear-gradient(
+      to bottom,
+      #f5f7fa,
+      #e4e8f0
+    );
+
+  color: black;
+}
+
+body:not(.dark-mode) .glass-card {
+  background:
+    rgba(255, 255, 255, 0.6);
+
+  border:
+    1px solid rgba(0, 0, 0, 0.08);
+
+  color: black;
+}
+
+body:not(.dark-mode) .glass-btn {
+  color: black;
+}
+
+body:not(.dark-mode) .nav-link:hover {
+  color: #0891b2;
+}
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+.mobile-menu {
+  animation:
+    fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   RESPONSIVE FIXES
+========================= */
+
+@media (max-width: 768px) {
+  .glass-card {
+    border-radius: 18px;
+  }
+
+  .cyber-btn,
+  .glass-btn {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+
+  body::before,
+  body::after {
+    width: 350px;
+    height: 350px;
+  }
+}
+
+/* =========================
+   SELECTION COLOR
+========================= */
+
+::selection {
+  background: cyan;
+  color: black;
+}
+
+/* =========================
+   IMAGE OPTIMIZATION
+========================= */
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+input,
+textarea,
+button {
+  font-family: inherit;
+}
+
+/* =========================
+   FUTURE THREE.JS SUPPORT
+========================= */
+
+.canvas-container {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  pointer-events: none;
+}
+section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+button, .glass-card {
+  transition: all 0.25s ease;
+}
+body {
+  overflow-x: hidden;
+}
