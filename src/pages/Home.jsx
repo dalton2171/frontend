@@ -274,7 +274,7 @@ function Home() {
                 </a>
 
                 <a
-                  href="https://linkedin.com"
+                  href="https://linkedin.com/in/dalitech-ceh"
                   target="_blank"
                   rel="noreferrer"
                   className="glass-btn p-4"
@@ -283,7 +283,7 @@ function Home() {
                 </a>
 
                 <a
-                  href="https://youtube.com"
+                  href="https://youtube.com/dalitech_ceh"
                   target="_blank"
                   rel="noreferrer"
                   className="glass-btn p-4"
@@ -292,7 +292,7 @@ function Home() {
                 </a>
 
                 <a
-                  href="https://instagram.com"
+                  href="https://instagram.com/dalitech_ceh"
                   target="_blank"
                   rel="noreferrer"
                   className="glass-btn p-4"
@@ -301,7 +301,7 @@ function Home() {
                 </a>
 
                 <a
-                  href="https://facebook.com"
+                  href="https://facebook.com/dalitech.ceh"
                   target="_blank"
                   rel="noreferrer"
                   className="glass-btn p-4"
@@ -310,7 +310,7 @@ function Home() {
                 </a>
 
                 <a
-                  href="https://tiktok.com"
+                  href="https://tiktok.com/@dalitech_ceh"
                   target="_blank"
                   rel="noreferrer"
                   className="glass-btn p-4"
@@ -319,7 +319,7 @@ function Home() {
                 </a>
 
                 <a
-                  href="https://twitter.com"
+                  href="https://twitter.com/dalitech_ceh"
                   target="_blank"
                   rel="noreferrer"
                   className="glass-btn p-4"

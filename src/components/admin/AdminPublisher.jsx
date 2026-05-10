@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import api from "../../lib/api";
 import socket from "../../lib/socket";
 
 function AdminPublisher() {
@@ -22,10 +22,7 @@ function AdminPublisher() {
 
     try {
       // 1. SAVE TO DATABASE
-      const res = await axios.post(
-        "http://localhost:5000/api/content",
-        form
-      );
+      const res = await api.post("/content", form);
 
       const newContent = res.data.content;
 
