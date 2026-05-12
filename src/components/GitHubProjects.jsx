@@ -5,7 +5,7 @@ function GitHubProjects() {
   const [repos, setRepos] = useState([]);
 
   useEffect(() => {
-    fetch("https://api.github.com/users/dalitech/repos")
+    fetch("https://api.github.com/users/dalton2171/repos")
       .then((res) => res.json())
       .then((data) => setRepos(data.slice(0, 6))); // top 6 repos
   }, []);
