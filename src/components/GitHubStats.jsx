@@ -5,7 +5,7 @@ function GitHubStats() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    fetch("https://api.github.com/users/dalitech")
+    fetch("https://api.github.com/users/dalton2171")
       .then((res) => res.json())
       .then((res) => setData(res));
   }, []);
