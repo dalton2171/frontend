@@ -17,24 +17,42 @@ import Admin from "./pages/Admin";
 import Login from "./pages/Login";
 import SocialHub from "./pages/SocialHub";
 
-
 import BootScreen from "./components/BootScreen";
 
 function App() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] =
+    useState(true);
 
+  // =========================================
   // CURSOR STATE
-  const [cursor, setCursor] = useState({ x: 0, y: 0 });
+  // =========================================
+  const [cursor, setCursor] =
+    useState({
+      x: 0,
+      y: 0,
+    });
 
+  // =========================================
   // CURSOR MOVEMENT
+  // =========================================
   useEffect(() => {
     const move = (e) => {
-      setCursor({ x: e.clientX, y: e.clientY });
+      setCursor({
+        x: e.clientX,
+        y: e.clientY,
+      });
     };
 
-    window.addEventListener("mousemove", move);
+    window.addEventListener(
+      "mousemove",
+      move
+    );
 
-    return () => window.removeEventListener("mousemove", move);
+    return () =>
+      window.removeEventListener(
+        "mousemove",
+        move
+      );
   }, []);
 
   return (
@@ -52,57 +70,96 @@ function App() {
       {/* SCAN LINE */}
       <div className="scan-line"></div>
 
-      {/* BOOT OR MAIN APP */}
+      {/* BOOT SCREEN */}
       {loading ? (
-        <BootScreen onFinish={() => setLoading(false)} />
+        <BootScreen
+          onFinish={() =>
+            setLoading(false)
+          }
+        />
       ) : (
         <Routes>
 
-          {/* MAIN HOME */}
-          <Route path="/" element={<Home />} />
+          {/* ========================================= */}
+          {/* PUBLIC PORTFOLIO ROUTES */}
+          {/* ========================================= */}
 
-          {/* PUBLIC PAGES */}
+          {/* HOME */}
+          <Route
+            path="/"
+            element={<Home />}
+          />
+
+          {/* PROJECTS */}
           <Route
             path="/projects"
-            element={<ProjectsPage />}
+            element={
+              <ProjectsPage />
+            }
           />
 
+          {/* CYBER LAB */}
           <Route
             path="/cyberlab"
-            element={<CyberLabPage />}
+            element={
+              <CyberLabPage />
+            }
           />
 
+          {/* CONTACT */}
           <Route
             path="/contact"
-            element={<ContactPage />}
+            element={
+              <ContactPage />
+            }
           />
 
-          {/* SYSTEM PAGES */}
+          {/* SOCIAL HUB */}
+          <Route
+            path="/socialhub"
+            element={<SocialHub />}
+          />
+
+          {/* DASHBOARD */}
           <Route
             path="/dashboard"
             element={<Dashboard />}
           />
 
+          {/* ANALYTICS */}
           <Route
             path="/analytics"
             element={<Analytics />}
           />
 
-         <Route
-          path="/admin" 
-          element={<Admin />} 
-          />
-    
+          {/* ========================================= */}
+          {/* ADMIN AUTH ROUTES */}
+          {/* ========================================= */}
 
+          {/* LOGIN */}
           <Route
             path="/login"
             element={<Login />}
           />
-          <Route path="/socials" element={<SocialHub />} />
 
-          {/* FIX: CATCH-ALL ROUTE */}
-          {/* This prevents the "No routes matched" error by redirecting invalid paths back to home */}
-          <Route path="*" element={<Navigate to="/" replace />} />
+          {/* ADMIN */}
+          <Route
+            path="/admin"
+            element={<Admin />}
+          />
+
+          {/* ========================================= */}
+          {/* FALLBACK */}
+          {/* ========================================= */}
+          <Route
+            path="*"
+            element={
+              <Navigate
+                to="/"
+                replace
+              />
+            }
+          />
 
         </Routes>
       )}

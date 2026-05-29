@@ -274,7 +274,7 @@ function Home() {
                 </a>
 
                 <a
-                  href="https://linkedin.com/in/dalitech-ceh"
+                  href="https://linkedin.com/in/dalitech_ceh"
                   target="_blank"
                   rel="noreferrer"
                   className="glass-btn p-4"
